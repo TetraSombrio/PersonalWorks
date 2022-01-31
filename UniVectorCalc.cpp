@@ -8,23 +8,21 @@ get - функции на взятие пром.результатов. vm - н�
 
 long int getvectorlenght(int a, int b, int c)
 {
-	int a, b, c;
-	
-	long int modulo = sqrt((a*a) + (b*b) + (c*c))
+	long int modulo = sqrt((a*a) + (b*b) + (c*c));
 	
 	cout << "lenght" << "work in progress" << endl;
 	return modulo;
 }
 
-int getvectorbypoints(A, B)
+int getvectorbypoints(int* A, int* B)
 {
-	int AB[3], A[3], B[3];
+	int* AB[3];
 	
-	for(i = 0; i < n; ++i)
+	for(int i = 0; i < 3; ++i)
 	{
 		AB[i] = B[i] - A[i];
 	}
-	return AB;
+	//return AB;
 }
 
 bool checkcollinear()
@@ -35,12 +33,12 @@ bool checkcollinear()
 	return false;
 }
 
-int vm_sum(A, B)
+int vm_sum(int A, int B)
 {
 	
 	int promres1, promres2, vectorA, vectorB, vectorC;
-	vectorA = get_vectorlenght(a, b, c);
-	vectorB = get_vectorlenght(a2, b2, c2);
+	vectorA = get_vectorlenght(A[0], A[1], A[2]);
+	vectorB = get_vectorlenght(B[0], B[1], B[2]);
 	vectorC = vectorA + vectorB;
 	
 	cout << "adder" << "work in progress" << endl;
