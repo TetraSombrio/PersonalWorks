@@ -9,14 +9,12 @@ get - функции на взятие пром.результатов. vm - н�
 long int getvectorlenght(int a, int b, int c)
 {
 	long int modulo = sqrt((a*a) + (b*b) + (c*c));
-	
-	cout << "lenght" << "work in progress" << endl;
 	return modulo;
 }
 
-int getvectorbypoints(int* A, int* B)
+int getvectorbypoints(int A, int B)
 {
-	int* AB[3];
+	int AB[3];
 	
 	for(int i = 0; i < 3; ++i)
 	{
@@ -37,8 +35,8 @@ int vm_sum(int A, int B)
 {
 	
 	int promres1, promres2, vectorA, vectorB, vectorC;
-	vectorA = get_vectorlenght(A[0], A[1], A[2]);
-	vectorB = get_vectorlenght(B[0], B[1], B[2]);
+	vectorA = getvectorlenght(A[0], A[1], A[2]);
+	vectorB = getvectorlenght(B[0], B[1], B[2]);
 	vectorC = vectorA + vectorB;
 	
 	cout << "adder" << "work in progress" << endl;
@@ -47,7 +45,7 @@ int vm_sum(int A, int B)
 
 float vm_scalar(int A[3], int B[3])
 {
-	int modA, modB, cosinus;
+	int modA, modB, cosinus, ABprom;
 	float cos, r;
 	
 	modA = getvectorlenght(A[0], A[1], A[2]);
@@ -63,6 +61,9 @@ float vm_scalar(int A[3], int B[3])
 
 int main()
 {
+	int select;
+	int A[3], B[3];
+	cin >> select;
 	
 	switch(select)
 	{
@@ -70,20 +71,20 @@ int main()
 			break;
 		case 1:
 			//vm_sum();
-			cout << "a+b = " << vm_sum() << endl;
-			continue;
+			cout << "a+b = " << vm_sum(A, B) << endl;
+			//continue;
 		case 2:
 			//vm_scalar();
-			cout << "scalar a*b = " << vm_scalar() << endl;
-			continue;
+			cout << "scalar a*b = " << vm_scalar(A, B) << endl;
+			//continue;
 		case 3:
 			//vm_scalar();
 			cout << "Array sorted for" << endl;
-			continue;
+			//continue;
 		case 4:
 			//vm_scalar();
 			cout << "Array sorted for" << endl;
-			continue;
+			//continue;
 		default:
             cout << "invalid value";
             return 0;
