@@ -6,7 +6,7 @@ using namespace std;
 /* индексы: 
 get - функции на взятие пром.результатов. vm - непосредственно операции над векторами*/
 
-long int getvectorlenght(int a, int b, int c);
+long int getvectorlenght(int a, int b, int c)
 {
 	int a, b, c;
 	
@@ -14,6 +14,17 @@ long int getvectorlenght(int a, int b, int c);
 	
 	cout << "lenght" << "work in progress" << endl;
 	return modulo;
+}
+
+int getvectorbypoints(A, B)
+{
+	int AB[3], A[3], B[3];
+	
+	for(i = 0; i < n; ++i)
+	{
+		AB[i] = B[i] - A[i];
+	}
+	return AB;
 }
 
 bool checkcollinear()
@@ -24,7 +35,7 @@ bool checkcollinear()
 	return false;
 }
 
-int vm_sum();
+int vm_sum(A, B)
 {
 	
 	int promres1, promres2, vectorA, vectorB, vectorC;
@@ -36,29 +47,20 @@ int vm_sum();
 	return vectorC;
 }
 
-long int vm_scalar(x, y, z, x2, y2, z2)
+float vm_scalar(int A[3], int B[3])
 {
-	int modA, modB, cosinus, r;
-	int A[3], B[3];
-	float cos;
+	int modA, modB, cosinus;
+	float cos, r;
 	
-	A[0] = x;
-	A[1] = y;
-	A[2] = z;
-	B[0] = x2;
-	B[1] = y2;
-	B[2] = z2;
+	modA = getvectorlenght(A[0], A[1], A[2]);
+	modB = getvectorlenght(B[0], B[1], B[2]);
 	
+	ABprom = (A[0]*B[0])+(A[1]*B[1])+(A[2]*B[2]);
 	
-	modA = getvectorlenght();
-	modB = getvectorlenght();
-	
-	Aprom = 0;
-	Bprom = 0;
-	
-	cos = (((Aprom)*(Bprom))/((modA)*(modB)));
+	cos = (((ABprom))/((modA)*(modB)));
 	
 	r = modB * modA * cos;
+	return r;
 }
 
 int main()
@@ -73,7 +75,15 @@ int main()
 			cout << "a+b = " << vm_sum() << endl;
 			continue;
 		case 2:
-			vm_multip();
+			//vm_scalar();
+			cout << "scalar a*b = " << vm_scalar() << endl;
+			continue;
+		case 3:
+			//vm_scalar();
+			cout << "Array sorted for" << endl;
+			continue;
+		case 4:
+			//vm_scalar();
 			cout << "Array sorted for" << endl;
 			continue;
 		default:
