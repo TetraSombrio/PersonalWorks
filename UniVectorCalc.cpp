@@ -6,7 +6,7 @@ using namespace std;
 /* индексы: 
 get - функции на взятие пром.результатов. vm - непосредственно операции над векторами*/
 
-long int get_vectorlenght(int a, int b, int c);
+long int getvectorlenght(int a, int b, int c);
 {
 	int a, b, c;
 	
@@ -16,7 +16,7 @@ long int get_vectorlenght(int a, int b, int c);
 	return modulo;
 }
 
-bool get_kollinearcheck()
+bool checkcollinear()
 {
 	
 	
@@ -34,6 +34,31 @@ int vm_sum();
 	
 	cout << "adder" << "work in progress" << endl;
 	return vectorC;
+}
+
+long int vm_scalar(x, y, z, x2, y2, z2)
+{
+	int modA, modB, cosinus, r;
+	int A[3], B[3];
+	float cos;
+	
+	A[0] = x;
+	A[1] = y;
+	A[2] = z;
+	B[0] = x2;
+	B[1] = y2;
+	B[2] = z2;
+	
+	
+	modA = getvectorlenght();
+	modB = getvectorlenght();
+	
+	Aprom = 0;
+	Bprom = 0;
+	
+	cos = (((Aprom)*(Bprom))/((modA)*(modB)));
+	
+	r = modB * modA * cos;
 }
 
 int main()
