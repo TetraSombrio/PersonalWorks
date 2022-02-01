@@ -4,9 +4,9 @@
 #include <cmath>
 using namespace std;
 /* индексы: 
-get - функции на взятие пром.результатов. vm - непосредственно операции над векторами*/
+get - функции на взятие пром.результатов. vm - непосредственно операции над векторами. Размер массива всегда три. */
 
-int getvectorbypoints(int A, int B)
+int getvectorbypoints(int *A[3], int *B[3])
 {
 	int AB[3];
 	
@@ -17,9 +17,14 @@ int getvectorbypoints(int A, int B)
 	//return AB;
 }
 
-int getvectorlenght(int a, int b, int c)
+int getvectorlenght(int *A[3], int *B[3])
 {
-	getvectorbypoints(A, B);
+	int AB[3];
+	for(int i = 0; i < 3; ++i)
+	{
+		AB[i] = getvectorbypoints(*A[i], *B[i]);
+	}
+	
 	long int modulo = sqrt((AB[0]*AB[0]) + (AB[1]*AB[1]) + (AB[2]*AB[2]));
 	return modulo;
 }
@@ -32,7 +37,7 @@ bool checkcollinear()
 	return false;
 }
 
-int vm_sum(int A, int B)
+int vm_sum(int *A[3], int *B[3])
 {
 	
 	int promres1, promres2, vectorA, vectorB, vectorC;
@@ -44,7 +49,7 @@ int vm_sum(int A, int B)
 	return vectorC;
 }
 
-float vm_scalar(int A[3], int B[3])
+float vm_scalar(int *A[3], int *B[3])
 {
 	int modA, modB, cosinus, ABprom;
 	float cos, r;
@@ -63,7 +68,7 @@ float vm_scalar(int A[3], int B[3])
 int main()
 {
 	int select;
-	int A[3], B[3];
+	int *A[3], *B[3];
 	cin >> select;
 	
 	switch(select)
