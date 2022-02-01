@@ -6,7 +6,7 @@ using namespace std;
 /* индексы: 
 get - функции на взятие пром.результатов. vm - непосредственно операции над векторами. Размер массива всегда три. */
 
-int getvectorbypoints(int *A[3], int *B[3])
+AB<int, 3> getvectorbypoints(int *A[3], int *B[3])
 {
 	int AB[3];
 	
@@ -14,7 +14,7 @@ int getvectorbypoints(int *A[3], int *B[3])
 	{
 		AB[i] = B[i] - A[i];
 	}
-	//return AB;
+	return AB;
 }
 
 int getvectorlenght(int *A[3], int *B[3])
