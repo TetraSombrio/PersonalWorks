@@ -6,12 +6,6 @@ using namespace std;
 /* индексы: 
 get - функции на взятие пром.результатов. vm - непосредственно операции над векторами*/
 
-long int getvectorlenght(int a, int b, int c)
-{
-	long int modulo = sqrt((a*a) + (b*b) + (c*c));
-	return modulo;
-}
-
 int getvectorbypoints(int A, int B)
 {
 	int AB[3];
@@ -21,6 +15,13 @@ int getvectorbypoints(int A, int B)
 		AB[i] = B[i] - A[i];
 	}
 	//return AB;
+}
+
+int getvectorlenght(int a, int b, int c)
+{
+	getvectorbypoints(A, B);
+	long int modulo = sqrt((AB[0]*AB[0]) + (AB[1]*AB[1]) + (AB[2]*AB[2]));
+	return modulo;
 }
 
 bool checkcollinear()
