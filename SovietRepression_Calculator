@@ -57,6 +57,7 @@ public:
 
 int main()
 {
+	std::setlocale(LC_ALL, "RU-ru");
 	RepressionCalculator calc;
 
 	calc.enterValues();
