@@ -1,0 +1,68 @@
+#include <iostream>
+#include <algorithm>
+#include <cctype>
+#include <string>
+
+#define cout std::cout
+#define cin std::cin
+#define endl std::endl
+#define stry 1937
+
+class RepressionCalculator
+{
+	private:
+		int year;
+		double k1 = 2.5, k2 = 1.75, usd;
+		unsigned long N, cpeople;
+	public:
+		void enterValues()
+		{
+			cout << "введите текущий год" << endl;
+			cin >> year;
+			cout << "введите текущий курс доллара" << endl;
+			cin >> usd;
+			cout << "введите текущее население России" << endl;
+			cin >> cpeople;
+			std::system("pause");
+		}
+		
+		void selectK()
+		{
+		    std::string r;
+		    int resp;
+		    
+			cout << "Укажите текущее экономическое состояние РФ(рост, кризис, стагнация)" << endl;
+			
+			cin >> r;
+			std::transform(r.begin(), r.end(), r.begin(), tolower);
+			resp = (r=="рост") ? k2=0.5:k2=1;
+			resp = (r=="кризис") ? k2=2:k2=1;
+			k2 = resp;
+			
+			cout << "Укажите текущий уровень жизни в РФ(высокий, низкий, средний)" << endl;
+			
+			cin >> r;
+			std::transform(r.begin(), r.end(), r.begin(), tolower);
+			resp = (r=="высокий") ? k1=5:k1=3;
+			resp = (r=="низкий") ? k1=2:k1=3;
+			k1 = resp;
+		}
+
+		unsigned long calcRepress()
+		{
+			N = (((year-stry)*cpeople)/(usd*k1))*k2;
+			cout << N << endl;
+			return N;
+		}
+};
+
+
+int main()
+{
+	RepressionCalculator calc;
+	
+	calc.enterValues();
+	calc.selectK();
+	calc.calcRepress();
+	return 0;
+}
